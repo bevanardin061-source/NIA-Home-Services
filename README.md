@@ -37,4 +37,4 @@ Do not run `docker compose down -v` unless you intend to permanently delete the 
 
 Import the repository with the project root set to `.` (not `api`). The root contains the static site and Vercel API functions. Vercel runs `npm ci` to install the API dependency. Add `DATABASE_URL` as a Vercel environment variable using a hosted PostgreSQL connection string; the local Docker database is not reachable by Vercel. The first request initializes the `bookings` table.
 
-The Docker-only Express server at `api/server.js` is excluded from Vercel deployments. The serverless routes are `api/bookings.js` and `api/health.js`.
+The Docker-only Express server and package manifest at `api/server.js` and `api/package.json` are excluded from Vercel deployments. The serverless routes are `api/bookings.js` and `api/health.js`.
