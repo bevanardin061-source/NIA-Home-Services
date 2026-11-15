@@ -32,3 +32,9 @@ Do not run `docker compose down -v` unless you intend to permanently delete the 
 - Configure HTTPS at your production host.
 - Booking requests are stored in PostgreSQL; the app does not yet send email/SMS notifications or provide a staff dashboard.
 - The site uses externally hosted photography.
+
+## Deploy to Vercel
+
+Import the repository with the project root set to `.` (not `api`). The root contains the static site and Vercel API functions. Add `DATABASE_URL` as a Vercel environment variable using a hosted PostgreSQL connection string; the local Docker database is not reachable by Vercel. The first request initializes the `bookings` table.
+
+The Docker-only Express server at `api/server.js` is excluded from Vercel deployments. The serverless routes are `api/bookings.js` and `api/health.js`.
