@@ -1,0 +1,40 @@
+services:
+  nia-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nia-home-services
+    ports:
+      - "8080:80"
+    depends_on:
+      - nia-api
+    restart: unless-stopped
+  nia-api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: nia-booking-api
+    environment:
+      PORT: 3000
+      DATABASE_URL: postgres://nia:${POSTGRES_PASSWORD:-nia_local_change_me}@nia-db:5432/nia
+    depends_on:
+      nia-db:
+        condition: service_healthy
+    restart: unless-stopped
+  nia-db:
+    image: postgres:16-alpine
+    container_name: nia-postgres
+    environment:
+      POSTGRES_DB: nia
+      POSTGRES_USER: nia
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nia_local_change_me}
+    volumes:
+      - nia_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nia -d nia"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+volumes:
+  nia_db_data:

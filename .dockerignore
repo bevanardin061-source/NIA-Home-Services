@@ -1,0 +1,13 @@
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+node_modules
+.vscode
+NIA_Home_Services_site.zip
+*.sql
+*.sql.*
+npm-debug.log
+.DS_Store
+Thumbs.db
