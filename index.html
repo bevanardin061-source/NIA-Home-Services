@@ -1,8 +1,33 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NIA Home Services</title>
+<title>NIA Home Services | Ngong, Nairobi &amp; Kajiado</title>
+<meta name="description" content="Book residential, commercial, move-in/move-out, and post-construction home services in Ngong, Nairobi, and Kajiado County, Kenya.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://nia-home-services.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NIA Home Services">
+<meta property="og:title" content="NIA Home Services | Ngong, Nairobi &amp; Kajiado">
+<meta property="og:description" content="Book residential, commercial, move-in/move-out, and post-construction home services in Ngong, Nairobi, and Kajiado County, Kenya.">
+<meta property="og:url" content="https://nia-home-services.vercel.app/">
+<meta property="og:locale" content="en_KE">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "NIA Home Services",
+  "url": "https://nia-home-services.vercel.app/",
+  "description": "Residential, commercial, move-in/move-out, and post-construction home services in Ngong, Nairobi, and Kajiado County, Kenya.",
+  "email": "niahomeservices@gmail.com",
+  "telephone": "+254180025036",
+  "areaServed": [
+    { "@type": "City", "name": "Nairobi" },
+    { "@type": "AdministrativeArea", "name": "Kajiado County, Kenya" }
+  ]
+}
+</script>
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#fff;--alt:#f0f7f4;--tx:#0f2a22;--mu:#5b6b65;--card:#fff;--bd:#dfe9e4;--g:#0f3d2a;--g2:#c9a24a;--dk:#0b1f19}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0d1714;--alt:#112019;--tx:#e8f3ee;--mu:#9bb0a7;--card:#14261f;--bd:#22382f}}
@@ -81,7 +106,7 @@ input,select,textarea{font-size:16px}
 .cl .sc .w{opacity:.65}.cl .sc .w.on{opacity:1}
 .cl .sub,.cl .ccard p,.cl .feats span,.cl .step p,.cl details p{color:var(--tx);opacity:.85}
 .cl .eyebrow{font-size:11px}
-@supports(height:1dvh){.cl #hw .hero{height:calc(100dvh - 82px)}}
+@supports(height:1dvh){.cl #hw .hero{height:calc(100dvh - var(--hh,64px) - 16px)}}
 @media(max-width:760px){.cl .hero-copy{margin:10px;padding:14px 16px;max-width:none}.cl .hero h1{font-size:27px}.cl .hf{object-position:60% 35%}.cl .sc .w{opacity:1}}
 </style>
 <style id="fit">
@@ -204,7 +229,7 @@ function cl01(x){return Math.max(0,Math.min(1,x))}
 function setBA(v){var r=document.getElementById("rg"),a=document.getElementById("af"),b=document.getElementById("bar");if(!r)return;r.value=v;a.style.clipPath="inset(0 0 0 "+v+"%)";b.style.left=v+"%"}
 function initCl(){
  var hw=document.getElementById("hw");if(!hw){CLS=null;return}
- var hf=document.getElementById("hf");hf.addEventListener("loadedmetadata",tick,{once:true});hf.src=HERO_VIDEO;touched=false;
+ var hf=document.getElementById("hf"),reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;hf.autoplay=!reduceMotion;hf.loop=!reduceMotion;hf.src=HERO_VIDEO;touched=false;
  document.querySelectorAll(".cl .sc").forEach(function(el){var t=el.textContent.trim().split(/\s+/);el.innerHTML=t.map(function(w){return '<span class="w">'+w+'</span>'}).join(" ")});
  var rg=document.getElementById("rg");var bx=document.getElementById("cba");rg.addEventListener("input",function(){touched=true;setBA(this.value)});
  function mvB(e){var b=bx.getBoundingClientRect();setBA(Math.round(cl01((e.clientX-b.left)/b.width)*100))}
@@ -220,8 +245,7 @@ function bindBookingForm(){
 }
 function tick(){
  if(!CLS)return;var C=CLS,vh=innerHeight,hd=document.querySelector("header");document.documentElement.style.setProperty("--hh",hd.offsetHeight+"px");
- var r=C.hw.getBoundingClientRect(),p=cl01(-r.top/(r.height-vh)),hero=C.hero,d=C.hf.duration;
- if(isFinite(d)&&d>0){var frame=Math.min(d-0.04,Math.round(cl01(p/0.8)*d*24)/24);if(Math.abs(C.hf.currentTime-frame)>0.025)C.hf.currentTime=frame}
+ var r=C.hw.getBoundingClientRect(),p=cl01(-r.top/(r.height-vh)),hero=C.hero;
  var o=1-cl01(p/0.07),cp=hero.querySelector(".hero-copy");cp.style.opacity=o;cp.style.pointerEvents=o<.3?"none":"auto";hero.querySelector(".chips").style.opacity=o;hero.querySelector(".hint").style.opacity=o;
  hero.querySelector(".htag").style.opacity=cl01((p-0.8)/0.07)*(1-cl01((p-0.93)/0.07));
  hero.style.transform="scale("+(1-0.05*cl01((p-0.8)/0.2))+")";
@@ -232,8 +256,9 @@ function tick(){
 }
 addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;tick()})}},{passive:true});addEventListener("resize",tick);
 
+function resetScroll(){var root=document.documentElement,behavior=root.style.scrollBehavior;root.style.scrollBehavior='auto';window.scrollTo(0,0);root.style.scrollBehavior=behavior}
 function route(){var r=(location.hash||'#home').slice(1);if(!P[r])r='home';document.getElementById('app').innerHTML=P[r]();
-document.getElementById('nav').innerHTML=NAV.map(function(n){return '<a href="#'+n[0]+'" class="'+(n[0]==r?'on':'')+'">'+n[1]+'</a>'}).join('');window.scrollTo(0,0);initCl();bindBookingForm();document.querySelectorAll('[data-img]').forEach(function(e){var u=IMG[e.dataset.img];if(u){var h=e.classList.contains('hero'),g=innerWidth<850?'linear-gradient(#0b1f19cc,#0b1f19cc)':'linear-gradient(90deg,#0b1f19 0,#0b1f19 40%,#0b1f1900 78%)';var L=document.createElement('div');L.className='bgl';L.style.backgroundImage=(h?g+',':'')+'url('+u+')';L.style.backgroundSize=h?'auto 100%':'cover';L.style.backgroundPosition=h?'right center':'center';L.style.backgroundRepeat='no-repeat';e.insertBefore(L,e.firstChild);e.classList.add('lz');if(h)e.style.backgroundColor='#0b1f19'}});
+document.getElementById('nav').innerHTML=NAV.map(function(n){return '<a href="#'+n[0]+'" class="'+(n[0]==r?'on':'')+'">'+n[1]+'</a>'}).join('');resetScroll();initCl();bindBookingForm();document.querySelectorAll('[data-img]').forEach(function(e){var u=IMG[e.dataset.img];if(u){var h=e.classList.contains('hero'),g=innerWidth<850?'linear-gradient(#0b1f19cc,#0b1f19cc)':'linear-gradient(90deg,#0b1f19 0,#0b1f19 40%,#0b1f1900 78%)';var L=document.createElement('div');L.className='bgl';L.style.backgroundImage=(h?g+',':'')+'url('+u+')';L.style.backgroundSize=h?'auto 100%':'cover';L.style.backgroundPosition=h?'right center':'center';L.style.backgroundRepeat='no-repeat';e.insertBefore(L,e.firstChild);e.classList.add('lz');if(h)e.style.backgroundColor='#0b1f19'}});
 (function(){var els=document.querySelectorAll('.lz');if(!('IntersectionObserver' in window)){els.forEach(function(x){x.classList.add('clear')});return}var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){var el=x.target;setTimeout(function(){el.classList.add('clear')},150);io.unobserve(el)}})},{threshold:.12});els.forEach(function(x){io.observe(x)})})();
 document.querySelectorAll('[data-f]').forEach(function(t){t.onclick=function(e){if(e.target.tagName=='BUTTON'){t.querySelectorAll('button').forEach(function(b){b.className=''});e.target.className='on';var l=e.target.textContent;document.querySelectorAll('[data-c]').forEach(function(x){x.style.display=(l=='All'||x.dataset.c==l)?'':'none'})}}});
 var sel=document.querySelector('#cf select');if(sel&&SEL!=null){sel.selectedIndex=SEL+1;SEL=null}var s=document.getElementById('send');if(s)s.onclick=function(){var f=document.querySelectorAll('section.two input,section.two select,section.two textarea');document.getElementById('ok').style.display='block';location.href='mailto:niahomeservices@gmail.com?subject='+encodeURIComponent('Booking: '+f[2].value)+'&body='+encodeURIComponent('Name: '+f[0].value+'\nEmail: '+f[1].value+'\n\n'+f[3].value)}}
@@ -348,7 +373,7 @@ var HERO_VIDEO='https://videos.pexels.com/video-files/6196262/6196262-hd_1920_10
   ka: cleaner.after
  });
 })();
-addEventListener('hashchange',route);route();
+if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash&&location.hash!=='#home')history.replaceState(null,'','#home');addEventListener('hashchange',route);route();
 </script>
 <style id="brand-green">
 .cl .hero{background:linear-gradient(110deg,#0b1f19 40%,#0f3d2a 70%,#2f6b3a)}
